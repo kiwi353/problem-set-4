@@ -59,11 +59,11 @@ function fahrenheit() {
   //////////////////////////////////////////////////////// DO NOT MODIFY
 
   let p = document.getElementById("output4");
-  p.innerHTML = (Math.round(((fahr-32)*(5/9))*100))/100;
+  p.innerHTML = `${fahr} degrees Fahrenheit equals ${(Math.round(((fahr-32)*(5/9))*100))/100} degrees Celsius.`;
 
   // WRITE YOUR EXERCISE 4 CODE HERE
 
-  ///////////////////////////// DO NOT MODIFY
+  ///////////////////////////// DO NOT MODIFYxs
   check("fahrenheit", fahr); // DO NOT MODIFY
   ///////////////////////////// DO NOT MODIFY
 }
@@ -86,11 +86,11 @@ function inches() {
   ////////////////////// DO NOT MODIFY
 
   let miles = (inches - inches%63360)/63360;
-  let yards = (inches - inches%36)/36-miles*63360;
-  let feets = (inches - inches%12)/12-yards*36;
-  inches = inches - miles*63360 - yards*36 - feets*12;
+  let yards = (inches - miles*63360 - inches%36)/36;
+  let feets = (inches - miles*63360 - yards*36 - inches%12)/12;
+  inches = inches%12;
   let p = document.getElementById("output5");
-  p.innerHTML = (`${miles} ${yards} ${feets} ${inches}`)
+  p.innerHTML = (`Miles: ${miles}<br>Yards: ${yards}<br>Feet: ${feets}<br>Inches: ${inches}`);
 
   ////////////////////////// DO NOT MODIFY
   check("inches", input); // DO NOT MODIFY
@@ -114,8 +114,11 @@ function centimeters() {
   let centimeters = input; // DO NOT MODIFY
   /////////////////////////// DO NOT MODIFY
 
-  // WRITE YOUR EXERCISE 6 CODE HERE
-
+  let kilometers = (centimeters - centimeters%100000)/100000;
+  let meters = (centimeteers - kilometers*100000 - centimeters%100)/100;
+  centimeters = centimeters%100;
+  let p = document.getElementById("output6");
+  p.innerHTML = (`Kilometers: ${kilometers}<br>Meters: ${meters}<br>Centimeters: ${centimeters}`);
   /////////////////////////////// DO NOT MODIFY
   check("centimeters", input); // DO NOT MODIFY
   /////////////////////////////// DO NOT MODIFY
@@ -138,8 +141,13 @@ function fluidOunces() {
   let fluidOunces = input; // DO NOT MODIFY
   /////////////////////////// DO NOT MODIFY
 
-  // WRITE YOUR EXERCISE 7 CODE HERE
-
+  let gallons = (fluidOunces - fluidOunces%128)/128;
+  let quarts = (fluidOunces - gallons*128 - fluidOunces%32)/32;
+  let pints = (fluidOunces - gallons*128 - quarts*32 - fluidOunces%16)/16;
+  let cups = (fluidOunces - gallons*128 - quarts*32 - pints*16 - fluidOunces%8)/8;
+  fluidOunces = fluidOunces%8;
+  let p = document.getElementById("output7");
+  p.innerHTML = (`Gallons: ${gallons}<br>Quarts: ${quarts}<br>Pints: ${pints}<br>Cups: ${cups}<br>Fluid Ounces: ${fluidOunces}`);
   /////////////////////////////// DO NOT MODIFY
   check("fluidOunces", input); // DO NOT MODIFY
   /////////////////////////////// DO NOT MODIFY
@@ -162,8 +170,11 @@ function ounces() {
   let ounces = input; // DO NOT MODIFY
   ////////////////////// DO NOT MODIFY
 
-  // WRITE YOUR EXERCISE 8 CODE HERE
-
+  let tons = (ounces - ounces%32000)/32000;
+  let pounds = (ounces - tons*32000 - ounces%16)/16;
+  ounces = ounces%16;
+  let p = document.getElementById("output8");
+  p.innerHTML = (`Tons: ${tons}<br>Pounds: ${pounds}<br>Ounces: ${ounces}`);
   ////////////////////////// DO NOT MODIFY
   check("ounces", input); // DO NOT MODIFY
   ////////////////////////// DO NOT MODIFY
@@ -186,8 +197,13 @@ function money() {
   let pennies = input; // DO NOT MODIFY
   /////////////////////// DO NOT MODIFY
 
-  // WRITE YOUR EXERCISE 9 CODE HERE
-
+  let dollars = (pennies - pennies%100)/100;
+  let quarters = (pennies - dollars*100 - pennies%25)/25;
+  let dimes = (pennies - dollars*100 - quarters*25 - pennies%10)/10;
+  let nickles = (pennies - gallons*100 - quarters*25 - dimes*10 - pennies%5)/5;
+  pennies = pennies%5;
+  let p = document.getElementById("output9");
+  p.innerHTML = (`Dollars: ${dollars}<br>Quarters: ${quarters}<br>Dimes: ${dimes}<br>Nickles: ${nickles}<br>Pennies: ${pennies}`);
   ///////////////////////// DO NOT MODIFY
   check("money", input); // DO NOT MODIFY
   ///////////////////////// DO NOT MODIFY
