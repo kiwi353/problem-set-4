@@ -226,9 +226,19 @@ function change() {
   let amount = input; // DO NOT MODIFY
   ////////////////////// DO NOT MODIFY
 
-  // WRITE YOUR EXERCISE 10 CODE HERE
+  amount = amount*100;
 
-  ////////////////////////// DO NOT MODIFY
+  let quarters = (ammount - ammount%25)/25;
+  let dimes = (ammount - quarters*25 - ammount%10)/10;
+  let nickels = (nickles - quarters*25 - dimes*10 - ammount%5)/5;
+  let pennies = amount%5;
+  let p = document.getElementById("output10");
+  let total = quarters+dimes+nickels+pennies;
+  if (total == 1) {
+    p.innerHTML = `${total} coin.`;
+  } else {
+    p.innerHTML = `${total} coins.`;
+  }
   check("change", input); // DO NOT MODIFY
   ////////////////////////// DO NOT MODIFY
 }
