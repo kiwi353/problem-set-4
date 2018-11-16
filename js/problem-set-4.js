@@ -4,8 +4,8 @@
 
 function hello() {
 
-  var p = document.getElementById("output1");
-  p.innerHTML = "Hello AP Computer Science Priciples";
+  let p = document.getElementById("output1");
+  p.innerHTML = "Hello, AP Computer Science Principles!";
   ////////////////// DO NOT MODIFY
   check("hello"); // DO NOT MODIFY
   ////////////////// DO NOT MODIFY
@@ -21,7 +21,7 @@ function helloAgain() {
   let name; // DO NOT MODIFY
   //////////// DO NOT MODIFY
 
-  var p = document.getElementById("output2");
+  let p = document.getElementById("output2");
   name = prompt("Enter Your Name Here:");
   p.innerHTML = "Hello, " + name + "!";
 
@@ -40,10 +40,8 @@ function celsius() {
   let cels = ((Math.random() * 1001) - 100).toFixed(2); // DO NOT MODIFY
   //////////////////////////////////////////////////////// DO NOT MODIFY
 
-  // The above code generates a random number between -100 and 1000
-  // (inclusive), and rounds this value to 2 decimal places.
-
-  // WRITE YOUR EXERCISE 3 CODE HERE
+  let p = document.getElementById("output3");
+  p.innerHTML = `${cels} degrees Celsius equals ${(Math.round((cels*(9/5)+32)*100))/100} degrees Fahrenheit.`;
 
   ////////////////////////// DO NOT MODIFY
   check("celsius", cels); // DO NOT MODIFY
@@ -60,8 +58,8 @@ function fahrenheit() {
   let fahr = ((Math.random() * 1001) - 100).toFixed(2); // DO NOT MODIFY
   //////////////////////////////////////////////////////// DO NOT MODIFY
 
-  // The above code generates a random number between -100 and 1000
-  // (inclusive), and rounds this value to 2 decimal places.
+  let p = document.getElementById("output4");
+  p.innerHTML = (Math.round(((fahr-32)*(5/9))*100))/100;
 
   // WRITE YOUR EXERCISE 4 CODE HERE
 
@@ -87,7 +85,12 @@ function inches() {
   let inches = input; // DO NOT MODIFY
   ////////////////////// DO NOT MODIFY
 
-  // WRITE YOUR EXERCISE 5 CODE HERE
+  let miles = (inches - inches%63360)/63360;
+  let yards = (inches - inches%36)/36-miles*63360;
+  let feets = (inches - inches%12)/12-yards*36;
+  inches = inches - miles*63360 - yards*36 - feets*12;
+  let p = document.getElementById("output5");
+  p.innerHTML = (`${miles} ${yards} ${feets} ${inches}`)
 
   ////////////////////////// DO NOT MODIFY
   check("inches", input); // DO NOT MODIFY
