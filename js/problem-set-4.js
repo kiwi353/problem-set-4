@@ -41,7 +41,7 @@ function celsius() {
   //////////////////////////////////////////////////////// DO NOT MODIFY
 
   let p = document.getElementById("output3");
-  p.innerHTML = `${cels} degrees Celsius equals ${(Math.round((cels*(9/5)+32)*100))/100} degrees Fahrenheit.`;
+  p.innerHTML = `${cels} degrees Celsius equals ${(cels*(9/5)+32).toFixed(2)} degrees Fahrenheit.`;
 
   ////////////////////////// DO NOT MODIFY
   check("celsius", cels); // DO NOT MODIFY
@@ -59,7 +59,7 @@ function fahrenheit() {
   //////////////////////////////////////////////////////// DO NOT MODIFY
 
   let p = document.getElementById("output4");
-  p.innerHTML = `${fahr} degrees Fahrenheit equals ${(Math.round(((fahr-32)*(5/9))*100))/100} degrees Celsius.`;
+  p.innerHTML = `${fahr} degrees Fahrenheit equals ${(fahr-32)*(5/9).toFixed(2)} degrees Celsius.`;
 
   // WRITE YOUR EXERCISE 4 CODE HERE
 
@@ -115,7 +115,7 @@ function centimeters() {
   /////////////////////////// DO NOT MODIFY
 
   let kilometers = (centimeters - centimeters%100000)/100000;
-  let meters = (centimeteers - kilometers*100000 - centimeters%100)/100;
+  let meters = (centimeters - kilometers*100000 - centimeters%100)/100;
   centimeters = centimeters%100;
   let p = document.getElementById("output6");
   p.innerHTML = (`Kilometers: ${kilometers}<br>Meters: ${meters}<br>Centimeters: ${centimeters}`);
@@ -199,11 +199,11 @@ function money() {
 
   let dollars = (pennies - pennies%100)/100;
   let quarters = (pennies - dollars*100 - pennies%25)/25;
-  let dimes = (pennies - dollars*100 - quarters*25 - pennies%10)/10;
-  let nickles = (pennies - gallons*100 - quarters*25 - dimes*10 - pennies%5)/5;
+  let dimes = (pennies - dollars*100 - quarters*25 - (pennies - dollars*100 - quarters*25)%10)/10;
+  let nickles = (pennies - dollars*100 - quarters*25 - dimes*10 - pennies%5)/5;
   pennies = pennies%5;
   let p = document.getElementById("output9");
-  p.innerHTML = (`Dollars: ${dollars}<br>Quarters: ${quarters}<br>Dimes: ${dimes}<br>Nickles: ${nickles}<br>Pennies: ${pennies}`);
+  p.innerHTML = (`Dollars: ${dollars}<br>Quarters: ${quarters}<br>Dimes: ${dimes}<br>Nickels: ${nickles}<br>Pennies: ${pennies}`);
   ///////////////////////// DO NOT MODIFY
   check("money", input); // DO NOT MODIFY
   ///////////////////////// DO NOT MODIFY
@@ -228,9 +228,9 @@ function change() {
 
   amount = amount*100;
 
-  let quarters = (ammount - ammount%25)/25;
-  let dimes = (ammount - quarters*25 - ammount%10)/10;
-  let nickels = (nickles - quarters*25 - dimes*10 - ammount%5)/5;
+  let quarters = (amount - amount%25)/25;
+  let dimes = (amount - quarters*25 - (amount - quarters*25)%10)/10;
+  let nickels = (amount - quarters*25 - dimes*10 - amount%5)/5;
   let pennies = amount%5;
   let p = document.getElementById("output10");
   let total = quarters+dimes+nickels+pennies;
